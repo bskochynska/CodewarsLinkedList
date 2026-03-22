@@ -1,0 +1,13 @@
+"""
+module to parse a linked list from a string
+"""
+from node import Node
+
+def linked_list_from_string(list_repr: str) -> Node | None:
+    values = list_repr.split(" -> ")[:-1]
+    if len(values) == 0:
+        return None
+    probe = None
+    for i in reversed(values):
+        probe = Node(int(i), probe)
+    return probe
